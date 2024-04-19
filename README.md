@@ -20,3 +20,5 @@ Some of the fundamentals covered will include:
 - Sorting Algorithms
 
 All of these concepts will include tests as well!
+
+There will also be NO COPILOT here

@@ -150,16 +150,19 @@ class LinkedList(value: Int) {
 		}
 	}
 
-	fun getHead() {
+	fun getHead(): Int? {
 		println("Head: ${head?.value}")
+		return head?.value
 	}
 
-	fun getTail() {
+	fun getTail(): Int? {
 		println("Tail: ${tail?.value}")
+		return tail?.value
 	}
 
-	fun getLength() {
+	fun getLength(): Int {
 		println("Length: $length")
+		return length
 	}
 
 	// Interview Questions!! Leetcode style :/
