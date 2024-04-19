@@ -196,9 +196,9 @@ class LinkedList(value: Int) {
 	}
 
 	// Find Kth Node from end
-	fun findKthFromEnd(k: Int): Node? {
-
-	}
+//	fun findKthFromEnd(k: Int): Node? {
+//
+//	}
 
 	private fun isEmpty() = length == 0
 
