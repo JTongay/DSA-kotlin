@@ -20,6 +20,7 @@ fun main(args: Array<String>) {
     insertTest()
     removeTest()
     reverseTest()
+    findMiddleTest()
 }
 
 fun prependTest() {
@@ -110,4 +111,14 @@ fun reverseTest() {
     linkedList.reverse()
     linkedList.printList()
     println("-----------------------------")
+}
+
+fun findMiddleTest() {
+    println("findMiddle test")
+    val linkedList = LinkedList(1)
+
+    linkedList.append(2)
+    linkedList.append(3)
+
+    println(assert(linkedList.findMiddle() == linkedList.get(1)).let { true })
 }

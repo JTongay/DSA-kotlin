@@ -162,6 +162,44 @@ class LinkedList(value: Int) {
 		println("Length: $length")
 	}
 
+	// Interview Questions!! Leetcode style :/
+	// Should use the slow and fast pointer technique (Floyd's Tortoise and Hare Algorithm) to find the middle
+	fun findMiddle(): Node? {
+		var slow = head
+		var fast = head
+
+		do {
+			slow = slow?.next
+			fast = fast?.next?.next
+		} while (fast?.next != null)
+
+		return slow
+	}
+
+	// Detect if there is a cycle or loop present in the LinkedList
+	// Should use Floyd's Tortoise and Hare Algo
+	// Use two pointers, a slow and fast
+	// Slow pointer moves one step at a time, while fast pointer moves 2 steps at a time
+	// If there is a loop in the linkedList, the two pointers will eventually meet at some point
+	// If there is no loop, the fast pointer will reach the end of the list
+	fun hasLoop(): Boolean {
+		var slow = head
+		var fast = head
+		do {
+			slow = slow?.next
+			fast = fast?.next?.next
+			if (slow == fast) {
+				return true
+			}
+		} while (fast?.next != null)
+		return false
+	}
+
+	// Find Kth Node from end
+	fun findKthFromEnd(k: Int): Node? {
+
+	}
+
 	private fun isEmpty() = length == 0
 
 	inner class Node(var value: Int, var next: Node? = null)
