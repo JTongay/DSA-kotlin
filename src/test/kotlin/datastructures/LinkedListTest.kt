@@ -298,4 +298,52 @@ internal class LinkedListTest {
 			)
 		}
 	}
+
+	@Nested
+	inner class FindMiddle {
+		@Test
+		fun `Finds the middle node of a LinkedList and returns the node`() {
+			val list = LinkedList(1).apply {
+				append(2)
+				append(3)
+			}
+
+			val middle = list.findMiddle()
+
+			assertEquals(middle?.value, 2)
+		}
+
+		@Test
+		fun `Returns the second of the two middle nodes if the LinkedList is an even number in length`() {
+			val list = LinkedList(1).apply {
+				append(2)
+				append(3)
+				append(4)
+			}
+
+			val middle = list.findMiddle()
+
+			assertEquals(middle?.value, 3)
+		}
+	}
+
+	@Nested
+	inner class HasLoop {
+		@Test
+		fun `Detects whether there is a loop in the LinkedList of values`() {
+			val list = LinkedList(1).apply {
+				append(2)
+				append(3)
+			}
+
+			val hasLoop = list.hasLoop()
+
+			assertFalse { hasLoop }
+		}
+	}
+
+	@Nested
+	inner class FindKthFromEnd {
+		
+	}
 }
