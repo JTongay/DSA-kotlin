@@ -83,7 +83,7 @@ class LinkedList(value: Int) {
 			return null
 		}
 		var temp = head
-		for (i in 0 until index) {
+		for (i in 0..<index) {
 			temp = temp?.next
 		}
 		return temp
@@ -142,7 +142,7 @@ class LinkedList(value: Int) {
 		tail = temp
 		var after: Node? = temp?.next
 		var before: Node? = null
-		for (i in 0 until length) {
+		for (i in 0..< length) {
 			after = temp?.next
 			temp?.next = before
 			before = temp
