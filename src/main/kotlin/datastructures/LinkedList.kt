@@ -199,9 +199,52 @@ class LinkedList(value: Int) {
 	}
 
 	// Find Kth Node from end
-//	fun findKthFromEnd(k: Int): Node? {
-//
-//	}
+	fun findKthFromEnd(k: Int): Node? {
+		var slow = head
+		var fast = head
+
+		for (i in 0 ..< k) {
+			if (fast == null) {
+				return null
+			}
+			fast = fast.next
+		}
+
+		do {
+			slow = slow?.next
+			fast = fast?.next
+		} while (fast != null)
+
+		return slow
+	}
+
+	/**
+	 * Given a value x you need to rearrange the linked list such that all nodes with a value
+	 * less than x come before all nodes with a value greater than or equal to x. Additionaly,
+	 * the relative order of nodes in both partitions should remain unchanged.
+	 *
+	 * Constraints:
+	 * The solution should travers the linked list at most once.
+	 * The solution should not create a new linked list.
+	 * Don't use the head pointer at all.
+	 *
+	 */
+	fun partitionList(x: Int) {
+		if (head == null) return
+		var current = head
+		var dummy1 = Node(1)
+		var dummy2 = Node(1)
+		var prev1 = dummy1
+		var prev2 = dummy2
+
+		do {
+			if (current?.value!! < x) {
+				prev1.next = current
+				prev1 = current
+			}
+			current = current?.next
+		} while (current != null)
+	}
 
 	private fun isEmpty() = length == 0
 

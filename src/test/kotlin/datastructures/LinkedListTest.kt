@@ -344,6 +344,48 @@ internal class LinkedListTest {
 
 	@Nested
 	inner class FindKthFromEnd {
-		
+		@Test
+		fun `Finds the 2nd Node from the end`() {
+			val list = LinkedList(1).apply {
+				append(2)
+				append(3)
+				append(4)
+			}
+
+			val response = list.findKthFromEnd(2)
+
+			assertEquals(response?.value, 3)
+		}
+
+		@Test
+		fun `Returns null if index is out of bounds`() {
+			val list = LinkedList(1).apply {
+				append(2)
+				append(3)
+				append(4)
+			}
+
+			val response = list.findKthFromEnd(9)
+
+			assertNull(response)
+		}
+	}
+
+	@Nested
+	inner class PartitionList {
+		@Test
+		fun `Partitions the list`() {
+			val list = LinkedList(1).apply {
+				append(4)
+				append(3)
+				append(2)
+				append(5)
+				append(2)
+			}
+
+			list.partitionList(3)
+
+			assertEquals(true, false)
+		}
 	}
 }
