@@ -2,6 +2,7 @@ package leetcodes
 
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 
 internal class EasyLeetCodeTests {
@@ -81,6 +82,52 @@ internal class EasyLeetCodeTests {
 			val response = searchInsert(input, target)
 
 			assertEquals(response, 4)
+		}
+	}
+
+	@Nested
+	inner class LengthOfLastWord {
+		@Test
+		fun`Returns the length of the last word in a sentence`() {
+			val input = "Hello World"
+			val response = lengthOfLastWord(input)
+
+			assertEquals(response, 5)
+		}
+
+		@Test
+		fun `Returns the length of the last word in a wonky sentence with spaces at the end`() {
+			val input = "   fly me   to   the moon  "
+			val response = lengthOfLastWord(input)
+
+			assertEquals(response, 4)
+		}
+	}
+
+	@Nested
+	inner class PlusOne {
+		@Test
+		fun`Increments the last integer by 1 and returns the resulting array`() {
+			val input = intArrayOf(4,3,2,1)
+			val response = plusOne(input)
+
+			assertContentEquals(response, intArrayOf(4,3,2,2))
+		}
+
+		@Test
+		fun`Increments the last integer by 1 when the result would be 10 and returns the array of 1,0`() {
+			val input = intArrayOf(9)
+			val response = plusOne(input)
+
+			assertContentEquals(response, intArrayOf(1,0))
+		}
+
+		@Test
+		fun`Increments an intArray of 9, 9 to 1, 0, 0`() {
+			val input = intArrayOf(9, 9)
+			val response = plusOne(input)
+
+			assertContentEquals(response, intArrayOf(1, 0, 0))
 		}
 	}
 }
